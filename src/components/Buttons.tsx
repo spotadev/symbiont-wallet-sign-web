@@ -9,7 +9,7 @@ export default function Buttons() {
     <div>
       <button onClick={() => open()}>Connect / Disconnect Wallet</button>
       <br /><br />
-      <button onClick={() => open({ view: 'Networks' })}>Open Network Modal</button>
+      <button onClick={() => open({ view: 'Networks' })}>Select Network</button>
     </div>
   )
 }
