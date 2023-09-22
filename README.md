@@ -22,5 +22,5 @@
 
 (viii) You will see:
 
-
+![App Screen Shot](images/app.png)  
 
