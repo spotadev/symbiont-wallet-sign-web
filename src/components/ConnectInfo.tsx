@@ -4,12 +4,28 @@ export default function ConnectInfo() {
   const { address, isConnecting, isDisconnected } = useAccount()
 
   if (isConnecting) {
-    return <div>Status: Connecting…</div>
+    return (
+      <div>
+        <span style={{ fontWeight: 'bold' }}>Status: </span>
+        Connecting ...
+      </div>);
   }
   else if (isDisconnected) {
-    return <div>Status: Disconnected</div>
+    return (
+      <div>
+        <span style={{ fontWeight: 'bold' }}>Status: </span>
+        Disconnected
+      </div>);
   }
   else {
-    return <div>Connected. Address: {address}</div>
+    return (
+      <div>
+        <span style={{ fontWeight: 'bold' }}>Status: </span>
+        Connected.
+        <div style={{ marginTop: '10px' }}>
+          <span style={{ fontWeight: 'bold' }}>Wallet Address: </span>
+          {address}
+        </div>
+      </div>);
   }
 }

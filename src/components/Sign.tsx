@@ -7,21 +7,40 @@ export default function Sign() {
 
   const { isConnecting, isDisconnected } = useAccount()
 
+  const getSignatureJSX = () => {
+    if (isSuccess) {
+      return (
+        <div style={{ marginTop: '20px' }}>
+          <span style={{ fontWeight: 'bold' }}>Signature: </span>
+          <span style={{ wordBreak: 'break-all' }}>{data}</span>
+        </div >
+      );
+    }
+    else if (isError) {
+      return (
+        <div style={{ marginTop: '20px' }}>
+          Error signing message
+        </div >
+      );
+    }
+    else {
+      return ('');
+    }
+  }
+
   if (!isConnecting && !isDisconnected && !isLoading) {
     return (
-      <>
+      <div style={{ paddingBottom: '30px' }}>
         <button disabled={isLoading} onClick={() => signMessage()}>
           Sign message
         </button>
-        <br /><br />
-        {isSuccess && <div>Signature: {data}</div>}
-        {isError && <div>Error signing message</div>}
-      </>
+        {getSignatureJSX()}
+      </div>
     );
   }
   else {
     return (
-      <></>
+      ''
     );
   }
 }
