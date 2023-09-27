@@ -14,13 +14,17 @@
 
 (iv) cd symbiont-wallet-sign-web
 
-(v) npm install
+(v) Copy .env.sample to .env
 
-(vi) npm run start
+(vi) Go to https://cloud.walletconnect.com/sign-in and get your projectId.  Put it in .env.
 
-(vii) Open app in web browser:  http://localhost:3000/
+(vii) npm install
 
-(viii) You will see:
+(viii) npm run start
+
+(ix) Open app in web browser:  http://localhost:3000/
+
+(x) You will see:
 
 ![App Screen Shot](images/app.png)  
 
