@@ -2,7 +2,7 @@
 
 ## Overview
 
-This Web React App is using Connect Wallet 2's Web3Modal 3.0.0-beta.4 to allow the user to connect their wallet and sign a message.
+This Web React App is using Connect Wallet 2's Web3Modal 3.0.2 to allow the user to connect their wallet and sign a message.
 
 ## Install and run example
 

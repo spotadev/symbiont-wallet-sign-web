@@ -1,13 +1,9 @@
-import React from 'react';
-import logo from './logo.svg';
 import appStyle from './App.module.css';
 
 import { createWeb3Modal, defaultWagmiConfig } from '@web3modal/wagmi/react'
 
-import { WagmiConfig, useAccount, useSignMessage } from 'wagmi'
+import { WagmiConfig } from 'wagmi'
 import { arbitrum, mainnet } from 'wagmi/chains'
-import ConnectButton from './components/Buttons';
-import Connect from './components/ConnectInfo';
 import ConnectInfo from './components/ConnectInfo';
 import Sign from './components/Sign';
 import Buttons from './components/Buttons';
@@ -22,7 +18,15 @@ if (!projectId) {
 
 // 2. Create wagmiConfig
 const chains = [mainnet, arbitrum]
-const wagmiConfig = defaultWagmiConfig({ chains, projectId, appName: 'Web3Modal' })
+
+const metadata = {
+  name: 'Web3Modal',
+  description: 'Web3Modal Example',
+  url: 'https://web3modal.com',
+  icons: ['https://avatars.githubusercontent.com/u/37784886']
+}
+
+const wagmiConfig = defaultWagmiConfig({ chains, projectId, metadata: metadata })
 
 // 3. Create modal
 createWeb3Modal({ wagmiConfig, projectId, chains })
@@ -35,7 +39,7 @@ function App() {
   return (
     <WagmiConfig config={wagmiConfig}>
       <div className={appStyle.centeredPage}>
-        <span style={{ fontWeight: 'bold' }}>Demo using Web3Modal 3.0.0-beta.4</span>
+        <span style={{ fontWeight: 'bold' }}>Demo using Web3Modal 3.0.2</span>
         <br /><br />
         This example allows you to connect to your wallet and sign some
         text.  The Sign Button shows once connected.
