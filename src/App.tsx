@@ -33,7 +33,7 @@ createWeb3Modal({ wagmiConfig, projectId, chains })
 
 // Required because of bug:
 // https://github.com/WalletConnect/walletconnect-monorepo/issues/3165
-localStorage.clear()
+// localStorage.clear()
 
 function App() {
   return (
