@@ -1,0 +1,4 @@
+
+npm create vite@latest wallet-connect-email-socials-login -- --template react-ts
+
+npm install @web3modal/wagmi wagmi viem

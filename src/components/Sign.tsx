@@ -1,9 +1,7 @@
 import { useAccount, useSignMessage } from "wagmi";
 
 export default function Sign() {
-  const { data, isError, isLoading, isSuccess, signMessage } = useSignMessage({
-    message: 'Symbiont Rocks',
-  })
+  const { data, isError, isSuccess, signMessage } = useSignMessage();
 
   const { isConnecting, isDisconnected } = useAccount()
 
@@ -28,14 +26,14 @@ export default function Sign() {
     }
   }
 
-  if (!isConnecting && !isDisconnected && !isLoading) {
+  if (!isConnecting && !isDisconnected) {
     return (
       <div style={{ paddingBottom: '30px' }}>
-        <button disabled={isLoading} onClick={() => signMessage()}>
+        <button onClick={() => signMessage({ message: 'Symbiont Rocks' })}>
           Sign message
         </button>
         {getSignatureJSX()}
-      </div>
+      </div >
     );
   }
   else {

@@ -1,30 +1,30 @@
-# Getting Started
+# React + TypeScript + Vite
 
-## Overview
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-This Web React App is using Connect Wallet 2's Web3Modal 3.0.2 to allow the user to connect their wallet and sign a message.
+Currently, two official plugins are available:
 
-## Install and run example
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-(i) mkdir ~/workspace
+## Expanding the ESLint configuration
 
-(ii) cd workspace
+If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-(iii) git clone https://github.com/spotadev/symbiont-wallet-sign-web.git
+- Configure the top-level `parserOptions` property like this:
 
-(iv) cd symbiont-wallet-sign-web
+```js
+export default {
+  // other rules...
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    project: ['./tsconfig.json', './tsconfig.node.json'],
+    tsconfigRootDir: __dirname,
+  },
+}
+```
 
-(v) Copy .env.sample to .env
-
-(vi) Go to https://cloud.walletconnect.com/sign-in and get your projectId.  Put it in .env.
-
-(vii) npm install
-
-(viii) npm run start
-
-(ix) Open app in web browser:  http://localhost:3000/
-
-(x) You will see:
-
-![App Screen Shot](images/app.png)  
-
+- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
+- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
+- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
