@@ -1,63 +1,31 @@
 import appStyle from './App.module.css';
-
-import { createWeb3Modal, defaultWagmiConfig } from '@web3modal/wagmi/react'
-
-import { WagmiConfig } from 'wagmi'
-import { arbitrum, mainnet } from 'wagmi/chains'
+import './App.css'
+import Buttons from './components/Buttons';
 import ConnectInfo from './components/ConnectInfo';
 import Sign from './components/Sign';
-import Buttons from './components/Buttons';
-
-// 1. Get projectId
-const projectId = process.env.REACT_APP_WALLET_CONNECT_PROJECT_ID;
-console.log('projectId', projectId);
-
-if (!projectId) {
-  throw new Error('Please copy .env.sample to .env and set variables');
-}
-
-// 2. Create wagmiConfig
-const chains = [mainnet, arbitrum]
-
-const metadata = {
-  name: 'Web3Modal',
-  description: 'Web3Modal Example',
-  url: 'https://web3modal.com',
-  icons: ['https://avatars.githubusercontent.com/u/37784886']
-}
-
-const wagmiConfig = defaultWagmiConfig({ chains, projectId, metadata: metadata })
-
-// 3. Create modal
-createWeb3Modal({ wagmiConfig, projectId, chains })
-
-// Required because of bug:
-// https://github.com/WalletConnect/walletconnect-monorepo/issues/3165
-// localStorage.clear()
 
 function App() {
+
   return (
-    <WagmiConfig config={wagmiConfig}>
-      <div className={appStyle.centeredPage}>
-        <span style={{ fontWeight: 'bold' }}>Demo using Web3Modal 3.0.2</span>
-        <br /><br />
-        This example allows you to connect to your wallet and sign some
-        text.  The Sign Button shows once connected.
-        <br /><br />
-        <Buttons />
-        <br /><br />
-        <ConnectInfo />
-        <br /><br />
-        <Sign />
-        Not included in this example, but none the less relevant:
-        <br /><br />
-        <div style={{ paddingLeft: '20px' }}>
-          If your are creating a login using your wallet you will
-          need to send the signature to the backend to be verified.
-        </div>
+    <div className={appStyle.centeredPage}>
+      <span style={{ fontWeight: 'bold' }}>Demo using @web3modal/wagmi 5.0.6</span>
+      <br /><br />
+      This example allows you to connect to your wallet and sign some
+      text.  The Sign Button shows once connected.
+      <br /><br />
+      <Buttons />
+      <br /><br />
+      <ConnectInfo />
+      <br /><br />
+      <Sign />
+      Not included in this example, but none the less relevant:
+      <br /><br />
+      <div style={{ paddingLeft: '20px' }}>
+        If your are creating a login using your wallet you will
+        need to send the signature to the backend to be verified.
       </div>
-    </WagmiConfig>
-  );
+    </div>
+  )
 }
 
-export default App;
+export default App

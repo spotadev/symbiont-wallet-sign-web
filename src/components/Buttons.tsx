@@ -1,4 +1,4 @@
-
+import appStyle from './App.module.css';
 import { useWeb3Modal } from '@web3modal/wagmi/react'
 
 export default function Buttons() {

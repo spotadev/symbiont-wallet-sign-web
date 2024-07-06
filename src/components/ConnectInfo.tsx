@@ -24,7 +24,7 @@ export default function ConnectInfo() {
         Connected.
         <div style={{ marginTop: '10px' }}>
           <span style={{ fontWeight: 'bold' }}>Wallet Address: </span>
-          {address}
+          <span style={{ wordBreak: 'break-all' }}>{address}</span>
         </div>
       </div>);
   }
